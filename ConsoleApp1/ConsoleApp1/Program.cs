@@ -159,13 +159,15 @@ namespace ConsoleApp1
                 {
                     comparar = matriz[l, c];
 
-                    for (int z = 1; z < matriz.GetLength(1); z++)
+                    for (int z = 1; z < matriz.GetLength(0); z++)
                     {
                         if (comparar == matriz[z, c])
                         {
+                            Console.WriteLine("[{0}][{1}]", z, c);
                             if (repete)
-
                             {
+                                Console.WriteLine("repete [{0}][{1}]", z, c);
+
                                 if (matriz[z, c] == "X")
                                     return 1;
                                 else
@@ -174,6 +176,7 @@ namespace ConsoleApp1
                             repete = true;
                         }
                     }
+                    repete = false;
                 }
             
             return 0;
