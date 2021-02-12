@@ -10,8 +10,31 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("HelloWorld");
+            string[,] velha = new string[3, 3]; // Matriz jogo da velha
+            int jogador = 0;  // X = 0    O = 1
+
+            iniciamatriz(velha);
+
+            imprime(velha);
+
+
             Console.ReadKey();
+        }
+
+        static void iniciamatriz(string[,] matriz)
+        {
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int y = 0; y < matriz.GetLength(1); y++)
+                    matriz[i, y] = i.ToString() + "," + y.ToString();
+        }
+        static void imprime(string[,] matriz)
+        {
+            for(int i = 0; i < matriz.GetLength(0); i++) { 
+                for(int y = 0; y < matriz.GetLength(1); y++) {
+                    Console.Write("\t" + matriz[i, y]);
+                }
+                Console.WriteLine("");
+            }
         }
     }
 }
