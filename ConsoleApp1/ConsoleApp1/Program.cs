@@ -15,22 +15,24 @@ namespace ConsoleApp1
             bool jogador1 = false;
 
             //Controlando a entrada do usuario
-            Console.WriteLine("O primeiro jogador sempre começa como X e o segundo como O");
+            //Console.WriteLine("O primeiro jogador sempre começa como X e o segundo como O");
             do
             {
-                Console.WriteLine("Informe quem vai começar (jogador 1 digite 1 , jogador 2 digite 2) : ");
+                Console.WriteLine("Informe quem vai começar\n" +
+                    "Jogador 1 (X) digite 1\nJogador 2 (O) digite 2");
                 Quem_Comeca = int.Parse(Console.ReadLine());
+
             } while (Quem_Comeca != 1 && Quem_Comeca != 2);
 
             if (Quem_Comeca == 1)
             {
                 jogador1 = true;
-                Console.WriteLine("---------JOGADOR 1 COMEÇA---------\n");
+                //Console.WriteLine("---------JOGADOR 1 COMEÇA---------\n");
             }
-            else
+            /*else
             {
                 Console.WriteLine("---------JOGADOR 2 COMEÇA---------\n");
-            }
+            }*/
 
             Console.WriteLine("As posições do jogo são essas:\n");
 
@@ -43,11 +45,11 @@ namespace ConsoleApp1
             {
                 if (jogador1)
                 {
-                    Console.WriteLine("Jogador 1, sua vez de jogar: ");
+                    Console.WriteLine("\n---------JOGADOR 1 (X)---------");
                 }
                 else
                 {
-                    Console.WriteLine("Jogador 2, sua vez de jogar: ");
+                    Console.WriteLine("\n---------JOGADOR 2 (O)---------");
                 }
 
                 solicita_posicao(velha, jogador1);
@@ -62,6 +64,10 @@ namespace ConsoleApp1
                 else if (verificastatus(velha) == 2) {
                     Console.WriteLine("Jogador 2 ganhou");
                     break;
+                }
+                else if(i == 8)
+                {
+                    Console.WriteLine("VELHA");
                 }
                 if (!jogador1)
                 {
@@ -80,7 +86,7 @@ namespace ConsoleApp1
         {
             for (int i = 0; i < matriz.GetLength(0); i++)
                 for (int y = 0; y < matriz.GetLength(1); y++)
-                    matriz[i, y] = i.ToString() + "," + y.ToString();
+                    matriz[i, y] = i + "," + y;
         }
 
         static void solicita_posicao(string[,] matriz, bool jogador1)
@@ -129,8 +135,8 @@ namespace ConsoleApp1
         {
             string comparar;
             bool repete = false;
+
             //HORIZONTAL
-            
             for(int i = 0; i < matriz.GetLength(0); i++) { 
                 for(int y = 0; y < 1; y++)
                 {
@@ -154,7 +160,7 @@ namespace ConsoleApp1
             }
 
             repete = false;
-
+            //VERTICAL
             for (int l = 0; l < 1; l++)
                 for (int c = 0; c < matriz.GetLength(1); c++)
                 {
@@ -176,7 +182,42 @@ namespace ConsoleApp1
                     }
                     repete = false;
                 }
-            
+
+            //DIAGONAL PRINCIPAL
+            comparar = matriz[0, 0];
+            for (int i = 1; i < matriz.GetLength(0); i++)
+            {
+                if(comparar == matriz[i, i])
+                {
+                    if (repete)
+                    {
+                        if (matriz[i, i] == "X")
+                            return 1;
+                        else
+                            return 2;
+                    }
+                    repete = true;
+                }
+            }
+
+            //DIAGONAL SECUNDÁRIA
+            repete = false;
+            comparar = matriz[1, 1];
+            for (int i = 0, y = 2; i <  2 * (matriz.GetLength(0) - 1); i += 2, y -= 2)
+            {
+                if (comparar == matriz[i, y])
+                {
+                    if (repete)
+                    {
+                        if (matriz[i, y] == "X")
+                            return 1;
+                        else
+                            return 2;
+                    }
+
+                    repete = true;
+                }
+            }
             return 0;
         }
     }
