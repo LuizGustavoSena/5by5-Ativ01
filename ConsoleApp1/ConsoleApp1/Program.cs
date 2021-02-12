@@ -164,11 +164,8 @@ namespace ConsoleApp1
                     {
                         if (comparar == matriz[z, c])
                         {
-                            Console.WriteLine("[{0}][{1}]", z, c);
                             if (repete)
                             {
-                                Console.WriteLine("repete [{0}][{1}]", z, c);
-
                                 if (matriz[z, c] == "X")
                                     return 1;
                                 else
