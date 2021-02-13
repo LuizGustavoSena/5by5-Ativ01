@@ -16,13 +16,19 @@ namespace ConsoleApp1
 
             //Controlando a entrada do usuario
             //Console.WriteLine("O primeiro jogador sempre começa como X e o segundo como O");
+            Console.WriteLine("PARA JOGAR VERIFIQUE AS POSIÇÕES DISPONÍVEIS\n" +
+                                    "INFORMADA POR (LINHA, COLUNA) NA MATRIZ\n" +
+                                    "E INFORME PRIMEIRO A LINHA E DEPOIS A COLUNA\n");
+
             do
             {
-                Console.WriteLine("Informe quem vai começar\n" +
+                Console.WriteLine("Informe quem irá começar\n" +
                     "Jogador 1 (X) digite 1\nJogador 2 (O) digite 2");
                 Quem_Comeca = int.Parse(Console.ReadLine());
 
             } while (Quem_Comeca != 1 && Quem_Comeca != 2);
+
+            Console.Clear();
 
             if (Quem_Comeca == 1)
             {
@@ -34,7 +40,6 @@ namespace ConsoleApp1
                 Console.WriteLine("---------JOGADOR 2 COMEÇA---------\n");
             }*/
 
-            Console.WriteLine("As posições do jogo são essas:\n");
 
             iniciamatriz(velha);
             imprime(velha);
@@ -43,6 +48,7 @@ namespace ConsoleApp1
 
             for (int i = 0; i < 9; i++)
             {
+
                 if (jogador1)
                 {
                     Console.WriteLine("\n---------JOGADOR 1 (X)---------");
@@ -54,6 +60,7 @@ namespace ConsoleApp1
 
                 solicita_posicao(velha, jogador1);
 
+                Console.Clear();
 
                 imprime(velha);
 
@@ -66,17 +73,14 @@ namespace ConsoleApp1
                     break;
                 }
                 else if(i == 8)
-                {
                     Console.WriteLine("VELHA");
-                }
+
                 if (!jogador1)
-                {
                     jogador1 = true;
-                }
                 else
-                {
                     jogador1 = false;
-                }
+
+                
             }
 
             Console.ReadKey();
@@ -103,9 +107,9 @@ namespace ConsoleApp1
 
                     Console.Write("Digite a coluna: ");
                     coluna = int.Parse(Console.ReadLine());
-                    if (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1))
+                    if (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0)
                         Console.WriteLine("DIGITE UM VALOR DENTRO DA MATRIZ");
-                } while (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1));
+                } while (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0);
                 
 
                 if (matriz[linha, coluna] == "X" || matriz[linha, coluna] == "O")
@@ -123,7 +127,9 @@ namespace ConsoleApp1
         }
         static void imprime(string[,] matriz)
         {
-            for(int i = 0; i < matriz.GetLength(0); i++) { 
+            Console.WriteLine("As posições do jogo são essas:\n");
+
+            for (int i = 0; i < matriz.GetLength(0); i++) { 
                 for(int y = 0; y < matriz.GetLength(1); y++) {
                     Console.Write("\t" + matriz[i, y]);
                 }
