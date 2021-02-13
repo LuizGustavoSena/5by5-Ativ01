@@ -65,11 +65,11 @@ namespace ConsoleApp1
                 imprime(velha);
 
                 if (verificastatus(velha) == 1) {
-                    Console.WriteLine("Jogador 1 ganhou");
+                    Console.WriteLine("Jogador 1 (X) ganhou");
                     break;
                 }
                 else if (verificastatus(velha) == 2) {
-                    Console.WriteLine("Jogador 2 ganhou");
+                    Console.WriteLine("Jogador 2 (O) ganhou");
                     break;
                 }
                 else if(i == 8)
