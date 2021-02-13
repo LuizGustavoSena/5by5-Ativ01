@@ -112,16 +112,16 @@ namespace ConsoleApp1
                 } while (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0);
                 
 
-                if (matriz[linha, coluna] == "X" || matriz[linha, coluna] == "O")
+                if (matriz[linha, coluna] == " X" || matriz[linha, coluna] == " O")
                    Console.WriteLine("DIGITE UMA POSIÇÃO NÃO USADA");
-            } while (matriz[linha, coluna] == "O" || matriz[linha, coluna] == "X");
+            } while (matriz[linha, coluna] == " O" || matriz[linha, coluna] == " X");
 
             Console.WriteLine("");
 
             if (jogador1)
-                matriz[linha, coluna] = "X";
+                matriz[linha, coluna] = " X";
             else
-                matriz[linha, coluna] = "O";
+                matriz[linha, coluna] = " O";
 
             return;
         }
@@ -129,11 +129,16 @@ namespace ConsoleApp1
         {
             Console.WriteLine("As posições do jogo são essas:\n");
 
+            Console.WriteLine("\t-------------------------");
             for (int i = 0; i < matriz.GetLength(0); i++) { 
                 for(int y = 0; y < matriz.GetLength(1); y++) {
-                    Console.Write("\t" + matriz[i, y]);
+                    Console.Write("\t|  " + matriz[i, y]);
                 }
+                Console.Write("\t|");
                 Console.WriteLine("");
+                Console.Write("\t-------------------------");
+                Console.WriteLine("");
+
             }
         }
 
@@ -153,7 +158,7 @@ namespace ConsoleApp1
                         if(comparar == matriz[i, c])
                         {
                             if (repete) {
-                                if (matriz[i, c] == "X")
+                                if (matriz[i, c] == " X")
                                     return 1;
                                 else
                                     return 2;
@@ -178,7 +183,7 @@ namespace ConsoleApp1
                         {
                             if (repete)
                             {
-                                if (matriz[z, c] == "X")
+                                if (matriz[z, c] == " X")
                                     return 1;
                                 else
                                     return 2;
@@ -197,7 +202,7 @@ namespace ConsoleApp1
                 {
                     if (repete)
                     {
-                        if (matriz[i, i] == "X")
+                        if (matriz[i, i] == " X")
                             return 1;
                         else
                             return 2;
@@ -215,7 +220,7 @@ namespace ConsoleApp1
                 {
                     if (repete)
                     {
-                        if (matriz[i, y] == "X")
+                        if (matriz[i, y] == " X")
                             return 1;
                         else
                             return 2;
