@@ -11,7 +11,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string[,] velha = new string[3, 3];
-            int Quem_Comeca;
+            string Quem_Comeca;
             bool jogador1 = false;
 
             //Controlando a entrada do usuario
@@ -24,13 +24,13 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Informe quem irá começar\n" +
                     "Jogador 1 (X) digite 1\nJogador 2 (O) digite 2");
-                Quem_Comeca = int.Parse(Console.ReadLine());
+                Quem_Comeca = Console.ReadLine();
 
-            } while (Quem_Comeca != 1 && Quem_Comeca != 2);
+            } while (Quem_Comeca != "1" && Quem_Comeca != "2");
 
             Console.Clear();
 
-            if (Quem_Comeca == 1)
+            if (Quem_Comeca == "1")
             {
                 jogador1 = true;
                 //Console.WriteLine("---------JOGADOR 1 COMEÇA---------\n");
@@ -97,32 +97,40 @@ namespace ConsoleApp1
         {
             int linha;
             int coluna;
-
-            do
+            try
             {
                 do
                 {
-                    Console.Write("Digite a linha: ");
-                    linha = int.Parse(Console.ReadLine());
+                    do
+                    {
+                        Console.Write("Digite a linha: ");
+                        linha = int.Parse(Console.ReadLine());
 
-                    Console.Write("Digite a coluna: ");
-                    coluna = int.Parse(Console.ReadLine());
-                    if (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0)
-                        Console.WriteLine("DIGITE UM VALOR DENTRO DA MATRIZ");
-                } while (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0);
-                
+                        Console.Write("Digite a coluna: ");
+                        coluna = int.Parse(Console.ReadLine());
+                        if (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0)
+                            Console.WriteLine("DIGITE UM VALOR DENTRO DA MATRIZ");
+                    } while (linha > (matriz.GetLength(0) - 1) || (coluna > matriz.GetLength(1) - 1) || linha < 0 || coluna < 0);
 
-                if (matriz[linha, coluna] == " X" || matriz[linha, coluna] == " O")
-                   Console.WriteLine("DIGITE UMA POSIÇÃO NÃO USADA");
-            } while (matriz[linha, coluna] == " O" || matriz[linha, coluna] == " X");
 
-            Console.WriteLine("");
+                    if (matriz[linha, coluna] == " X" || matriz[linha, coluna] == " O")
+                        Console.WriteLine("DIGITE UMA POSIÇÃO NÃO USADA");
+                } while (matriz[linha, coluna] == " O" || matriz[linha, coluna] == " X");
 
-            if (jogador1)
-                matriz[linha, coluna] = " X";
-            else
-                matriz[linha, coluna] = " O";
+                Console.WriteLine("");
 
+                if (jogador1)
+                    matriz[linha, coluna] = " X";
+                else
+                    matriz[linha, coluna] = " O";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Digite apenas números existentes na matriz");
+                solicita_posicao(matriz, jogador1);
+            }
+            
             return;
         }
         static void imprime(string[,] matriz)
