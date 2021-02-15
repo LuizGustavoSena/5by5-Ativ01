@@ -19,3 +19,10 @@ C:\Users\Le\source\repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj
 C:\Users\Le\source\repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
 C:\Users\Le\source\repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\Le\source\repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\LuizSena\Source\Repos\LuizGustavoSena\5by5-Ativ01\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
