@@ -13,6 +13,7 @@ namespace ConsoleApp1
             string[,] velha = new string[3, 3];
             string Quem_Comeca;
             bool jogador1 = false;
+            int situacao;
 
             Console.WriteLine("PARA JOGAR VERIFIQUE AS POSIÇÕES DISPONÍVEIS\n" +
                                     "INFORMADA POR (LINHA, COLUNA) NA MATRIZ\n" +
@@ -49,17 +50,19 @@ namespace ConsoleApp1
 
                 imprime(velha);
 
-                if (verificastatus(velha) == 1)
+                situacao = verificastatus(velha);
+
+                if (situacao == 1)
                 {
                     Console.WriteLine("Jogador 1 (X) ganhou");
                     break;
                 }
-                else if (verificastatus(velha) == 2)
+                else if (situacao == 2)
                 {
                     Console.WriteLine("Jogador 2 (O) ganhou");
                     break;
                 }
-                else if (i == 8)
+                else if (situacao == 0 && i == 8)
                     Console.WriteLine("VELHA");
 
                 if (!jogador1)
